@@ -2,7 +2,7 @@
 
 namespace Practise.Structures
 {
-    struct Process : IProcess
+    struct Process : IProcess, IEquatable<Process>
     {
         private string _name;
         
@@ -48,6 +48,11 @@ namespace Practise.Structures
         {
             process.RunningTime--;
             return process;
+        }
+
+        public bool Equals(Process process)
+        {
+            return string.Equals(Name, process.Name);
         }
     }
 }
