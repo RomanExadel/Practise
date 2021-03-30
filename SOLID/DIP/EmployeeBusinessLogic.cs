@@ -1,9 +1,12 @@
-﻿namespace SOLID.DIP
+﻿using Unity;
+
+namespace SOLID.DIP
 {
     class EmployeeBusinessLogic
     {
         private readonly IEmployeeDataAccess _employeeDataAccess;
 
+        [InjectionConstructor]
         public EmployeeBusinessLogic(IEmployeeDataAccess employeeDataAccess)
         {
             _employeeDataAccess = employeeDataAccess;
