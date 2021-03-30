@@ -12,6 +12,7 @@ namespace Practise
     {
         static void Main(string[] args)
         {
+            #region ClassPractise
             Car car1 = new Porsche("TurboS", "911");
             Car car2 = new Porsche("TurboS", "911", 1000);
 
@@ -38,30 +39,31 @@ namespace Practise
                 string carName = (string)porsche1;
                 Console.WriteLine($"ExplicitCast: {carName}");
             }
+            #endregion
+            #region StructurePractise
+            Console.WriteLine("--------------");
+                Process process1 = new("word.exe");
+                Process process2 = new("word.exe");
+                ProcessNameEqualityComparer processNameEquality = new();
+
+                Console.WriteLine($"Equals: {process1.Equals(process2)}");
+                Console.WriteLine($"ProcessNameEqualityComparer: {processNameEquality.Equals(process1, process2)}");
+
+                Console.WriteLine($"RunningTime before operator ++: {process1.RunningTime}");
+                process1++;
+                Console.WriteLine($"RunningTime: {process1.RunningTime}");
+
+                Process.ChangeRunningTime(process1);
+                Console.WriteLine($"Using ChangeRunningTime: {process1.RunningTime}");
+
+                Process.ChangeRunningTimeByRef(ref process1);
+                Console.WriteLine($"Using ChangeRunningTimeByRef: {process1.RunningTime}");
+
+                Process.ChangeRunningTimeByOut(out process1);
+                Console.WriteLine($"Using ChangeRunningTimeByOut: {process1.RunningTime}");
+            #endregion
 
             Console.WriteLine("--------------");
-            Process process1 = new("word.exe");
-            Process process2 = new("word.exe");
-            ProcessNameEqualityComparer processNameEquality = new();
-
-            Console.WriteLine($"Equals: {process1.Equals(process2)}");
-            Console.WriteLine($"ProcessNameEqualityComparer: {processNameEquality.Equals(process1, process2)}");
-
-            Console.WriteLine($"RunningTime before operator ++: {process1.RunningTime}");
-            process1++;
-            Console.WriteLine($"RunningTime: {process1.RunningTime}");
-
-            Process.ChangeRunningTime(process1);
-            Console.WriteLine($"Using ChangeRunningTime: {process1.RunningTime}");
-
-            Process.ChangeRunningTimeByRef(ref process1);
-            Console.WriteLine($"Using ChangeRunningTimeByRef: {process1.RunningTime}");
-
-            Process.ChangeRunningTimeByOut(out process1);
-            Console.WriteLine($"Using ChangeRunningTimeByOut: {process1.RunningTime}");
-
-            Console.WriteLine("--------------");
-
             List<Car> cars = new()
             {
                 new Porsche("TurboS", "911", 1000),
