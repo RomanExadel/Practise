@@ -69,12 +69,22 @@ namespace Practise
                 new Porsche("TurboS", "911", 1000),
                 new Porsche("TurboS", "911", 1000),
                 new Porsche("TurboS", "911", 500),
-                new Porsche("Turbo", "911", 500),
+                new Porsche("Turbo", "911", 1000),
             };
+
+            Console.WriteLine("CarEqualityComparer");
+            CarEqualityComparer carEqualityComparer = new();
+            Console.WriteLine(carEqualityComparer.Equals(cars[0], cars[1]));
+            Console.WriteLine(carEqualityComparer.Equals(cars[0], cars[2]));
+
+            Console.WriteLine("CarMileageEqualityComparer");
+            CarMileageEqualityComparer carMileageEqualityComparer = new();
+            Console.WriteLine(carMileageEqualityComparer.Equals(cars[0], cars[1]));
+            Console.WriteLine(carMileageEqualityComparer.Equals(cars[0], cars[3]));
 
             Console.WriteLine($"cars[0] is equal cars[1]? {cars[0].Equals(cars[1])}");
             Console.WriteLine($"cars[0] is equal cars[2]? {cars[0].Equals(cars[2])}");
-
+            
             Console.WriteLine("Distinct with CarEqualityComparer");
             foreach (var car in cars.Distinct(new CarEqualityComparer()))
             {
