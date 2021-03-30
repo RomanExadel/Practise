@@ -42,27 +42,27 @@ namespace Practise
             #endregion
             #region StructurePractise
             Console.WriteLine("--------------");
-                Process process1 = new("word.exe");
-                Process process2 = new("word.exe");
-                ProcessNameEqualityComparer processNameEquality = new();
+            Process process1 = new("word.exe");
+            Process process2 = new("word.exe");
+            ProcessNameEqualityComparer processNameEquality = new();
 
-                Console.WriteLine($"Equals: {process1.Equals(process2)}");
-                Console.WriteLine($"ProcessNameEqualityComparer: {processNameEquality.Equals(process1, process2)}");
+            Console.WriteLine($"Equals: {process1.Equals(process2)}");
+            Console.WriteLine($"ProcessNameEqualityComparer: {processNameEquality.Equals(process1, process2)}");
 
-                Console.WriteLine($"RunningTime before operator ++: {process1.RunningTime}");
-                process1++;
-                Console.WriteLine($"RunningTime: {process1.RunningTime}");
+            Console.WriteLine($"RunningTime before operator ++: {process1.RunningTime}");
+            process1++;
+            Console.WriteLine($"RunningTime: {process1.RunningTime}");
 
-                Process.ChangeRunningTime(process1);
-                Console.WriteLine($"Using ChangeRunningTime: {process1.RunningTime}");
+            Process.ChangeRunningTime(process1);
+            Console.WriteLine($"Using ChangeRunningTime: {process1.RunningTime}");
 
-                Process.ChangeRunningTimeByRef(ref process1);
-                Console.WriteLine($"Using ChangeRunningTimeByRef: {process1.RunningTime}");
+            Process.ChangeRunningTimeByRef(ref process1);
+            Console.WriteLine($"Using ChangeRunningTimeByRef: {process1.RunningTime}");
 
-                Process.ChangeRunningTimeByOut(out process1);
-                Console.WriteLine($"Using ChangeRunningTimeByOut: {process1.RunningTime}");
+            Process.ChangeRunningTimeByOut(out process1);
+            Console.WriteLine($"Using ChangeRunningTimeByOut: {process1.RunningTime}");
             #endregion
-
+            #region EqualityCompare
             Console.WriteLine("--------------");
             List<Car> cars = new()
             {
@@ -72,8 +72,8 @@ namespace Practise
                 new Porsche("Turbo", "911", 500),
             };
 
-            Console.WriteLine(cars[0].Equals(cars[1]));
-            Console.WriteLine(cars[0].Equals(cars[2]));
+            Console.WriteLine($"cars[0] is equal cars[1]? {cars[0].Equals(cars[1])}");
+            Console.WriteLine($"cars[0] is equal cars[2]? {cars[0].Equals(cars[2])}");
 
             Console.WriteLine("Distinct with CarEqualityComparer");
             foreach (var car in cars.Distinct(new CarEqualityComparer()))
@@ -86,6 +86,7 @@ namespace Practise
             {
                 Console.WriteLine($"{car.Name} {car.Mileage}");
             }
+            #endregion
         }
     }
 }
