@@ -1,7 +1,10 @@
 ﻿using Practise.Entities;
+using Practise.EqualityComparers;
 using Practise.Interfaces;
 using Practise.Structures;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Practise
 {
@@ -56,6 +59,28 @@ namespace Practise
 
             Process.ChangeRunningTimeByOut(out process1);
             Console.WriteLine($"Using ChangeRunningTimeByOut: {process1.RunningTime}");
+
+            Console.WriteLine("--------------");
+
+            List<Car> cars = new()
+            {
+                new Porsche("TurboS", "911", 1000),
+                new Porsche("TurboS", "911", 1000),
+                new Porsche("TurboS", "911", 500),
+                new Porsche("Turbo", "911", 500),
+            };
+
+            Console.WriteLine("Distinct with CarEqualityComparer");
+            foreach (var car in cars.Distinct(new CarEqualityComparer()))
+            {
+                Console.WriteLine($"{car.Name} {car.Mileage}");
+            }
+
+            Console.WriteLine("Distinct with CarMileageEqualityComparer");
+            foreach (var car in cars.Distinct(new CarMileageEqualityComparer()))
+            {
+                Console.WriteLine($"{car.Name} {car.Mileage}");
+            }
         }
     }
 }
