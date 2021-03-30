@@ -1,4 +1,4 @@
-﻿using SOLID.OCP;
+﻿using SOLID.LSP;
 using System;
 
 namespace SOLID
