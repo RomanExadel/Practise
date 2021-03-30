@@ -72,6 +72,9 @@ namespace Practise
                 new Porsche("Turbo", "911", 500),
             };
 
+            Console.WriteLine(cars[0].Equals(cars[1]));
+            Console.WriteLine(cars[0].Equals(cars[2]));
+
             Console.WriteLine("Distinct with CarEqualityComparer");
             foreach (var car in cars.Distinct(new CarEqualityComparer()))
             {

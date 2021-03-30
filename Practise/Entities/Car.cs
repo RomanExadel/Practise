@@ -2,7 +2,7 @@
 
 namespace Practise.Entities
 {
-    abstract class Car
+    abstract class Car : IEquatable<Car>
     {
         private string _name;
         private double _mileage;
@@ -56,6 +56,16 @@ namespace Practise.Entities
         public static void ChangeMileage(Car car, double mileage)
         {
             car.Mileage = mileage;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Name, Mileage);
+        }
+
+        public bool Equals(Car car)
+        {
+            return Name == car.Name && Mileage == car.Mileage;
         }
     }
 }
