@@ -55,7 +55,7 @@ namespace Practise
             Console.WriteLine($"Using ChangeRunningTimeByRef: {process1.RunningTime}");
 
             Process.ChangeRunningTimeByOut(out process1);
-            Console.WriteLine($"Using ChangeRunningTimeByRef: {process1.RunningTime}");
+            Console.WriteLine($"Using ChangeRunningTimeByOut: {process1.RunningTime}");
         }
     }
 }
