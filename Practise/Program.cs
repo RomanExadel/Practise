@@ -33,9 +33,6 @@ namespace Practise
 
                 Console.WriteLine($"Equals: {porsche1.Equals(porsche2)}");
 
-                CarMileageEqualityComparer carMileageEquality = new();
-                Console.WriteLine($"CarMileageEqualityComparer: {carMileageEquality.Equals(porsche1, porsche2)}");
-
                 string carName = (string)porsche1;
                 Console.WriteLine($"ExplicitCast: {carName}");
             }
@@ -77,22 +74,11 @@ namespace Practise
             Console.WriteLine(carEqualityComparer.Equals(cars[0], cars[1]));
             Console.WriteLine(carEqualityComparer.Equals(cars[0], cars[2]));
 
-            Console.WriteLine("CarMileageEqualityComparer");
-            CarMileageEqualityComparer carMileageEqualityComparer = new();
-            Console.WriteLine(carMileageEqualityComparer.Equals(cars[0], cars[1]));
-            Console.WriteLine(carMileageEqualityComparer.Equals(cars[0], cars[3]));
-
             Console.WriteLine($"cars[0] is equal cars[1]? {cars[0].Equals(cars[1])}");
             Console.WriteLine($"cars[0] is equal cars[2]? {cars[0].Equals(cars[2])}");
             
             Console.WriteLine("Distinct with CarEqualityComparer");
             foreach (var car in cars.Distinct(new CarEqualityComparer()))
-            {
-                Console.WriteLine($"{car.Name} {car.Mileage}");
-            }
-
-            Console.WriteLine("Distinct with CarMileageEqualityComparer");
-            foreach (var car in cars.Distinct(new CarMileageEqualityComparer()))
             {
                 Console.WriteLine($"{car.Name} {car.Mileage}");
             }

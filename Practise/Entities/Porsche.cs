@@ -57,6 +57,11 @@ namespace Practise.Entities
 
         public bool Equals(Porsche porsche)
         {
+            if (porsche is null)
+            {
+                return false;
+            }
+
             return Name == porsche.Name && Model == porsche.Model;
         }
     }

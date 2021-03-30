@@ -65,6 +65,11 @@ namespace Practise.Entities
 
         public bool Equals(Car car)
         {
+            if (car is null)
+            {
+                return false;
+            }
+
             return Name == car.Name && Mileage == car.Mileage;
         }
     }
