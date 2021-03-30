@@ -1,7 +1,4 @@
-﻿using SOLID.LSP;
-using System;
-
-namespace SOLID
+﻿namespace SOLID
 {
     class Program
     {
