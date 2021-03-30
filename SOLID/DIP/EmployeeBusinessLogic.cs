@@ -4,9 +4,9 @@
     {
         private readonly IEmployeeDataAccess _employeeDataAccess;
 
-        public EmployeeBusinessLogic()
+        public EmployeeBusinessLogic(IEmployeeDataAccess employeeDataAccess)
         {
-            _employeeDataAccess = DataAccessFactory.GetEmployeeDataAccessObj();
+            _employeeDataAccess = employeeDataAccess;
         }
 
         public Employee GetEmployeeDetails(int id)
