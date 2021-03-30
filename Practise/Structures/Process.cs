@@ -33,6 +33,16 @@ namespace Practise.Structures
             process.RunningTime = 100;
         }
 
+        public static void ChangeRunningTimeByRef(ref Process process)
+        {
+            process.RunningTime = 100;
+        }
+
+        public static void ChangeRunningTimeByOut(out Process process)
+        {
+            process = new Process();
+        }
+
         public void Run()
         {
             Console.WriteLine("Process started");
