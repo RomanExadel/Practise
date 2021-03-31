@@ -2,7 +2,7 @@
 
 namespace SOLID.DIP
 {
-    class EmployeeBusinessLogic
+    public class EmployeeBusinessLogic
     {
         private readonly IEmployeeDataAccess _employeeDataAccess;
 

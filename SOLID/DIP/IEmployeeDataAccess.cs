@@ -1,6 +1,6 @@
 ﻿namespace SOLID.DIP
 {
-    interface IEmployeeDataAccess
+    public interface IEmployeeDataAccess
     {
         Employee GetEmployeeDetails(int id);
     }

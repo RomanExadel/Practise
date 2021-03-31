@@ -6,7 +6,7 @@
         {
             Employee emp = new()
             {
-                ID = id,
+                Id = id,
                 Name = "Your",
                 Department = "IT",
                 Salary = 10000
