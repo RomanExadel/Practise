@@ -12,7 +12,7 @@ namespace UnitTests.BL
         public EmployeeBusinessLogicTest()
         {
             _mockEmployeeDAL = new Mock<IEmployeeDataAccess>();
-            _mockEmployeeDAL.Setup(dal => dal.GetEmployeeDetails(1)).Returns(EmployeeMockData.GetEmployeeDetails(1));
+            _mockEmployeeDAL.Setup(dal => dal.GetEmployeeDetails(It.IsAny<int>())).Returns(EmployeeMockData.GetEmployeeDetails(1));
         }
 
         [Fact]
