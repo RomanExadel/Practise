@@ -9,7 +9,7 @@ namespace Calculator
         {
             int numberOfInstruction = 1;
 
-            while (true)
+            do
             {
                 try
                 {
@@ -40,6 +40,7 @@ namespace Calculator
 
                 numberOfInstruction += 2;
             }
+            while (true);
         }
     }
 }
