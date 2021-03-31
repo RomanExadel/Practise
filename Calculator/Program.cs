@@ -9,32 +9,37 @@ namespace Calculator
         {
             int numberOfInstruction = 1;
 
-            label1:
-
-            try
+            while (true)
             {
-                Console.WriteLine("Write instruction in form <A> <operation> <B> <operation> <C> ... =");
-                var instruction = Console.ReadLine();
-                Console.SetCursorPosition(instruction.Length + 1, numberOfInstruction);
-
-                if (Regex.IsMatch(instruction, @"^-?\d{1,17}(\s*[-+ */]\s*-?\d{1,17})*\s*=$"))
+                try
                 {
-                    var simpleAlgorithm = new SimpleAlgorithm();
-                    simpleAlgorithm.Algorithm(instruction);
-                    Console.WriteLine(simpleAlgorithm.Result);
-                }
-                else
-                {
-                    throw new ArgumentException("Invalid input");
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+                    Console.WriteLine("Write instruction in form <A> <operation> <B> <operation> <C> ... =");
+                    var instruction = Console.ReadLine();
+                    Console.SetCursorPosition(instruction.Length + 1, numberOfInstruction);
 
-            numberOfInstruction += 2;
-            goto label1;
+                    if (instruction == "q")
+                    {
+                        break;
+                    }
+
+                    if (Regex.IsMatch(instruction, @"^-?\d{1,17}(\s*[-+ */]\s*-?\d{1,17})*\s*=$"))
+                    {
+                        var simpleAlgorithm = new SimpleAlgorithm();
+                        simpleAlgorithm.Algorithm(instruction);
+                        Console.WriteLine(simpleAlgorithm.Result);
+                    }
+                    else
+                    {
+                        throw new ArgumentException("Invalid input");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+                numberOfInstruction += 2;
+            }
         }
     }
 }
