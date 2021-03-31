@@ -4,7 +4,7 @@
     {
         public Employee GetEmployeeDetails(int id)
         {
-            Employee emp = new()
+            var emp = new Employee()
             {
                 Id = id,
                 Name = "Your",

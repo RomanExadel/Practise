@@ -7,7 +7,7 @@ namespace UnitTests.BL
 {
     public class EmployeeBusinessLogicTest
     {
-        private readonly Mock<IEmployeeDataAccess> _mockEmployeeDAL;
+        Mock<IEmployeeDataAccess> _mockEmployeeDAL;
 
         public EmployeeBusinessLogicTest()
         {

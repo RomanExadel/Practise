@@ -26,7 +26,7 @@ namespace SOLID.DIP
 
         public int GetHashCode([DisallowNull] Employee obj)
         {
-            throw new NotImplementedException();
+            return HashCode.Combine(obj.Id, obj.Name, obj.Department, obj.Salary);
         }
     }
 }
