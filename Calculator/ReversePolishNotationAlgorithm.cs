@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace Calculator
 {
-    public class ReversePolishNotationAlgorithm
+    public class ReversePolishNotationAlgorithm : IAlgorithm
     {
         public double Algorithm(string instruction)
         {

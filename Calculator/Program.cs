@@ -22,8 +22,8 @@ namespace Calculator
                         break;
                     }
 
-                    var simpleAlgorithm = new ReversePolishNotationAlgorithm();
-                    Console.WriteLine(simpleAlgorithm.Algorithm(instruction));
+                    var context = new Context(new ReversePolishNotationAlgorithm());
+                    Console.WriteLine(context.ExecuteAlgorithm(instruction));
                 }
                 catch (Exception ex)
                 {

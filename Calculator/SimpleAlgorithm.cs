@@ -4,18 +4,13 @@ using System.Globalization;
 
 namespace Calculator
 {
-    class SimpleAlgorithm
+    class SimpleAlgorithm : IAlgorithm
     {
         private readonly string splitPattern = "([-+ */])|([=])";
         private readonly int numberOfExtraSigns = 1;
         private User user = new User();
 
-        public double Result
-        {
-            get => user.CurrentValue;
-        }
-
-        public void Algorithm(string instruction)
+        public double Algorithm(string instruction)
         {
             var splitedExpression = Regex.Split(instruction, splitPattern).Where(x => !string.IsNullOrWhiteSpace(x)).ToArray();
             var firstNumber = double.Parse(splitedExpression[0], CultureInfo.InvariantCulture);
@@ -38,6 +33,8 @@ namespace Calculator
 
                 user.Compute(@operator, operand);
             }
+
+            return user.CurrentValue;
         }
 
         public bool IsDouble(string operand)
