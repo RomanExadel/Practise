@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Calculator
 {
@@ -10,6 +11,7 @@ namespace Calculator
     {
         public double Algorithm(string instruction)
         {
+            CheckValidInstruction(instruction);
             var reversePolishNotation = ConvertStringToPolishNotation(instruction).Split(' ');
             var stack = new Stack<double>();
 
@@ -39,7 +41,22 @@ namespace Calculator
                 }
             }
 
-            return stack.Pop();
+            var result = stack.Pop();
+
+            if (double.IsInfinity(result))
+            {
+                throw new DivideByZeroException("Result is infinity");
+            }
+
+            return result;
+        }
+
+        private void CheckValidInstruction(string instruction)
+        {
+            if (!Regex.IsMatch(instruction, @"^-?\d{1,17}(\.\d+)?(\s*[-+ */]\s*-?\d{1,17}(\.\d+)?)*\s*=$"))
+            {
+                throw new ArgumentException("Invalid input");
+            }
         }
 
         private string ConvertStringToPolishNotation(string input)

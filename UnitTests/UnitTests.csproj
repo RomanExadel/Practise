@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Calculator\Calculator.csproj" />
     <ProjectReference Include="..\SOLID\SOLID.csproj" />
   </ItemGroup>
 

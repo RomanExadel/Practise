@@ -22,15 +22,8 @@ namespace Calculator
                         break;
                     }
 
-                    if (Regex.IsMatch(instruction, @"^-?\d{1,17}(\.\d+)?(\s*[-+ */]\s*-?\d{1,17}(\.\d+)?)*\s*=$"))
-                    {
-                        var simpleAlgorithm = new ReversePolishNotationAlgorithm();
-                        Console.WriteLine(simpleAlgorithm.Algorithm(instruction));
-                    }
-                    else
-                    {
-                        throw new ArgumentException("Invalid input");
-                    }
+                    var simpleAlgorithm = new ReversePolishNotationAlgorithm();
+                    Console.WriteLine(simpleAlgorithm.Algorithm(instruction));
                 }
                 catch (Exception ex)
                 {
