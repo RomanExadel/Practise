@@ -2,7 +2,7 @@
 {
     class Context
     {
-        private IAlgorithm _algorithm;
+        private readonly IAlgorithm _algorithm;
 
         public Context(IAlgorithm algorithm)
         {
