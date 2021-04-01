@@ -58,7 +58,7 @@ namespace Calculator
                 else if (IsOperator(x))
                 {
                     formula.Append(' ');
-                    while (stack.Count > 0 && stack.Peek() != '(' && Prior(x) <= Prior(stack.Peek()))
+                    while (stack.Count > 0 && Prior(x) <= Prior(stack.Peek()))
                     {
                         formula.Append(stack.Pop());
                         formula.Append(' ');
