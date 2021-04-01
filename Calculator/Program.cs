@@ -25,7 +25,7 @@ namespace Calculator
                     if (Regex.IsMatch(instruction, @"^-?\d{1,17}(\.\d+)?(\s*[-+ */]\s*-?\d{1,17}(\.\d+)?)*\s*=$"))
                     {
                         var simpleAlgorithm = new ReversePolishNotationAlgorithm();
-                        simpleAlgorithm.Algorithm(instruction);
+                        Console.WriteLine(simpleAlgorithm.Algorithm(instruction));
                     }
                     else
                     {

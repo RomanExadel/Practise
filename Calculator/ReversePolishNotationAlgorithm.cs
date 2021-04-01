@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Text;
 
 namespace Calculator
 {
-    class ReversePolishNotationAlgorithm
+    public class ReversePolishNotationAlgorithm
     {
-        public void Algorithm(string instruction)
+        public double Algorithm(string instruction)
         {
             var reversePolishNotation = ConvertStringToPolishNotation(instruction).Split(' ');
             var stack = new Stack<double>();
@@ -21,7 +22,7 @@ namespace Calculator
                         break;
                     case "-":
                         var val1 = stack.Pop();
-                        var val2 = stack.Pop();
+                        var val2 = stack.Any() ? stack.Pop() : 0;
                         stack.Push(val2 - val1);
                         break;
                     case "*":
@@ -38,7 +39,7 @@ namespace Calculator
                 }
             }
 
-            Console.WriteLine(stack.Pop());
+            return stack.Pop();
         }
 
         private string ConvertStringToPolishNotation(string input)
@@ -80,7 +81,7 @@ namespace Calculator
                 formula.Append(stack.Pop());
             }
 
-            return formula.ToString();
+            return formula.ToString().Trim();
         }
 
         private bool IsOperator(char c) => (c == '-' || c == '+' || c == '*' || c == '/');
