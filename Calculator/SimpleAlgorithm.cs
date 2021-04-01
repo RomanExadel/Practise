@@ -42,7 +42,7 @@ namespace Calculator
 
         public bool IsDouble(string operand)
         {
-            if (double.TryParse(operand, out double result))
+            if (double.TryParse(operand, out _))
             {
                 return true;
             }
