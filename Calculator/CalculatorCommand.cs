@@ -5,10 +5,10 @@ namespace Calculator
     class CalculatorCommand : Command
     {
         private char _operator;
-        private long _operand;
+        private double _operand;
         private Calculator _calculator;
 
-        public CalculatorCommand(Calculator calculator, char @operator, long operand)
+        public CalculatorCommand(Calculator calculator, char @operator, double operand)
         {
             _calculator = calculator;
             _operator = @operator;
@@ -20,7 +20,7 @@ namespace Calculator
             set => _operator = value;
         }
 
-        public long Operand
+        public double Operand
         {
             set => _operand = value;
         }

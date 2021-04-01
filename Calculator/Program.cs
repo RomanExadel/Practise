@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Text.RegularExpressions;
 
 namespace Calculator
@@ -22,7 +23,7 @@ namespace Calculator
                         break;
                     }
 
-                    if (Regex.IsMatch(instruction, @"^-?\d{1,17}(\s*[-+ */]\s*-?\d{1,17})*\s*=$"))
+                    if (Regex.IsMatch(instruction, @"^-?\d{1,17}(\.\d+)?(\s*[-+ */]\s*-?\d{1,17}(?:\.\d+)?)*\s*=$"))
                     {
                         var simpleAlgorithm = new SimpleAlgorithm();
                         simpleAlgorithm.Algorithm(instruction);

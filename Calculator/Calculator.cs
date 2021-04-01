@@ -2,14 +2,14 @@
 {
     class Calculator
     {
-        private long _curr = 0;
+        private double _curr = 0;
 
-        public long CurrentValue
+        public double CurrentValue
         {
             get => _curr;
         }
 
-        public void Operation(char @operator, long operand)
+        public void Operation(char @operator, double operand)
         {
             switch (@operator)
             {

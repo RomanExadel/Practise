@@ -9,7 +9,7 @@ namespace Calculator
         private List<Command> _commands = new List<Command>();
         private int _current = 0;
 
-        public long CurrentValue
+        public double CurrentValue
         {
             get => _calculator.CurrentValue;
         }
@@ -38,7 +38,7 @@ namespace Calculator
             }
         }
 
-        public void Compute(char @operator, long operand)
+        public void Compute(char @operator, double operand)
         {
             Command command = new CalculatorCommand(_calculator, @operator, operand);
             command.Execute();
