@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 using System.Text.RegularExpressions;
 
 namespace Calculator
@@ -8,8 +7,8 @@ namespace Calculator
     {
         static void Main(string[] args)
         {
-            int numberOfInstruction = 1;
-
+            Console.WriteLine("Write q to quit");
+            int numberOfInstruction = 2;
             do
             {
                 try
@@ -23,11 +22,10 @@ namespace Calculator
                         break;
                     }
 
-                    if (Regex.IsMatch(instruction, @"^-?\d{1,17}(\.\d+)?(\s*[-+ */]\s*-?\d{1,17}(?:\.\d+)?)*\s*=$"))
+                    if (Regex.IsMatch(instruction, @"^-?\d{1,17}(\.\d+)?(\s*[-+ */]\s*-?\d{1,17}(\.\d+)?)*\s*=$"))
                     {
-                        var simpleAlgorithm = new SimpleAlgorithm();
+                        var simpleAlgorithm = new ReversePolishNotationAlgorithm();
                         simpleAlgorithm.Algorithm(instruction);
-                        Console.WriteLine(simpleAlgorithm.Result);
                     }
                     else
                     {

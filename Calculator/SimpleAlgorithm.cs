@@ -1,6 +1,9 @@
 ﻿using System.Linq;
 using System.Text.RegularExpressions;
 using System.Globalization;
+using System.Collections.Generic;
+using System;
+using System.Text;
 
 namespace Calculator
 {
