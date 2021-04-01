@@ -72,9 +72,9 @@ namespace CalculatorForm
             this.button1.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.Location = new System.Drawing.Point(53, 294);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(152, 50);
+            this.button1.Size = new System.Drawing.Size(212, 61);
             this.button1.TabIndex = 3;
-            this.button1.Text = "Count";
+            this.button1.Text = "Count (=)";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
