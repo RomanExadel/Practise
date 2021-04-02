@@ -51,7 +51,7 @@ namespace Calculator
             return result;
         }
 
-        private void CheckValidInstruction(string instruction)
+        public void CheckValidInstruction(string instruction)
         {
             if (!Regex.IsMatch(instruction, @"^-?\d{1,17}(\.\d+)?(\s*[-+ */]\s*-?\d{1,17}(\.\d+)?)*\s*$"))
             {

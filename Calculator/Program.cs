@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 
 namespace Calculator
 {
@@ -13,7 +12,7 @@ namespace Calculator
             {
                 try
                 {
-                    Console.WriteLine("Write instruction in form <A> <operation> <B> <operation> <C> ... =");
+                    Console.WriteLine("Write instruction in form <A> <operation> <B> <operation> <C> ...");
                     var instruction = Console.ReadLine();
                     Console.SetCursorPosition(instruction.Length + 1, numberOfInstruction);
 
@@ -23,7 +22,7 @@ namespace Calculator
                     }
 
                     var context = new Context(new ReversePolishNotationAlgorithm());
-                    Console.WriteLine(context.ExecuteAlgorithm(instruction));
+                    Console.WriteLine($"= {context.ExecuteAlgorithm(instruction)}");
                 }
                 catch (Exception ex)
                 {

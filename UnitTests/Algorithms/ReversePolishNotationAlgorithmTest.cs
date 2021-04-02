@@ -11,7 +11,7 @@ namespace UnitTests.Algorithms
         {
             //Arrange
             var expectedOutput = -9.01;
-            var input = "-1.1+1.1*1.9-10*1.1/1.1=";
+            var input = "-1.1+1.1*1.9-10*1.1/1.1";
             var notationAlgorithm = new ReversePolishNotationAlgorithm();
 
             //Act
@@ -41,7 +41,7 @@ namespace UnitTests.Algorithms
         {
             //Arrange
             var expectedOutput = "Result is infinity";
-            var input = "5/0=";
+            var input = "5/0";
             var notationAlgorithm = new ReversePolishNotationAlgorithm();
 
             //Act

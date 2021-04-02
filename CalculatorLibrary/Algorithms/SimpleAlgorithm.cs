@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Text.RegularExpressions;
 using System.Globalization;
+using System;
 
 namespace Calculator
 {
@@ -8,13 +9,14 @@ namespace Calculator
     {
         private readonly string splitPattern = "([-+ */])|([=])";
         private readonly int numberOfExtraSigns = 1;
-        private User user = new User();
+        private Calculator calculator = new Calculator();
 
         public double Algorithm(string instruction)
         {
+            CheckValidInstruction(instruction);
             var splitedExpression = Regex.Split(instruction, splitPattern).Where(x => !string.IsNullOrWhiteSpace(x)).ToArray();
             var firstNumber = double.Parse(splitedExpression[0], CultureInfo.InvariantCulture);
-            user.Compute('+', firstNumber);
+            calculator.Operation('+', firstNumber);
 
             for (int i = 1; i < splitedExpression.Length - numberOfExtraSigns; i += 2)
             {
@@ -31,10 +33,18 @@ namespace Calculator
                     operand = -double.Parse(splitedExpression[i + 1], CultureInfo.InvariantCulture);
                 }
 
-                user.Compute(@operator, operand);
+                calculator.Operation(@operator, operand);
             }
 
-            return user.CurrentValue;
+            return calculator.CurrentValue;
+        }
+
+        public void CheckValidInstruction(string instruction)
+        {
+            if (!Regex.IsMatch(instruction, @"^-?\d{1,17}(\.\d+)?(\s*[-+ */]\s*-?\d{1,17}(\.\d+)?)*\s*$"))
+            {
+                throw new ArgumentException("Invalid input");
+            }
         }
 
         public bool IsDouble(string operand)
