@@ -14,6 +14,7 @@ namespace Calculator
         public double Algorithm(string instruction)
         {
             CheckValidInstruction(instruction);
+            calculator.Reset();
             var splitedExpression = Regex.Split(instruction, splitPattern).Where(x => !string.IsNullOrWhiteSpace(x)).ToArray();
             var firstNumber = double.Parse(splitedExpression[0], CultureInfo.InvariantCulture);
             calculator.Operation('+', firstNumber);

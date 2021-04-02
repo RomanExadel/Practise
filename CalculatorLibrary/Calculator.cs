@@ -1,4 +1,6 @@
-﻿namespace Calculator
+﻿using System;
+
+namespace Calculator
 {
     class Calculator
     {
@@ -18,6 +20,11 @@
                 case '*': _curr *= operand; break;
                 case '/': _curr /= operand; break;
             }
+        }
+
+        public void Reset()
+        {
+            _curr = 0;
         }
     }
 }
