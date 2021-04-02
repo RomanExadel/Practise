@@ -1,4 +1,5 @@
 ﻿using Calculator;
+using CalculatorLibrary;
 using System;
 using System.Windows.Forms;
 
@@ -11,8 +12,11 @@ namespace CalculatorForm
         public Form1()
         {
             InitializeComponent();
-            comboBox1.Items.Add(nameof(ReversePolishNotationAlgorithm));
-            comboBox1.Items.Add(nameof(SimpleAlgorithm));
+
+            foreach (var item in new AlgorithmTypes())
+            {
+                comboBox1.Items.Add(item);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -38,10 +42,10 @@ namespace CalculatorForm
         {
             switch (comboBox1.SelectedItem)
             {
-                case "ReversePolishNotationAlgorithm":
+                case AlgorithmTypes.ReversePolishNotationAlgorithm:
                     _context = new Context(new ReversePolishNotationAlgorithm());
                     break;
-                case "SimpleAlgorithm":
+                case AlgorithmTypes.SimpleAlgorithm:
                     _context = new Context(new SimpleAlgorithm());
                     break;
                 default:
