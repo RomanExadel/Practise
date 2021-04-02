@@ -5,7 +5,7 @@ using System;
 
 namespace Calculator
 {
-    class SimpleAlgorithm : IAlgorithm
+    public class SimpleAlgorithm : IAlgorithm
     {
         private readonly string splitPattern = "([-+ */])|([=])";
         private readonly int numberOfExtraSigns = 1;
